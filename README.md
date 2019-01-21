@@ -1,7 +1,7 @@
 # Soal praktek
 
 1. Buatlah project dengan springboot untuk membuat aplikasi dengan tema e-commerce (Toko online)
-2. Ketentuan system yang harus di handle
+2. Ketentuan minimal system yang harus di handle
     - Master data toko
     - Master data produk
     - Transaksi Penjualan (Flow transaksi bebas)
