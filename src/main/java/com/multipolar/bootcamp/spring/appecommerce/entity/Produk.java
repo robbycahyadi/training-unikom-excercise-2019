@@ -1,5 +1,6 @@
 package com.multipolar.bootcamp.spring.appecommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -25,10 +28,14 @@ public class Produk {
     @Column(name = "nama", nullable = false)
     private String nama;
 
-    @Column(name = "harga")
+    @Column(name = "harga", nullable = false)
     private BigInteger harga;
 
     @Type(type = "text")
     @Column(name = "deskripsi")
     private String deskripsi;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "produk")
+    public List<TransaksiDetail> transaksiDetailList = new ArrayList<>();
 }

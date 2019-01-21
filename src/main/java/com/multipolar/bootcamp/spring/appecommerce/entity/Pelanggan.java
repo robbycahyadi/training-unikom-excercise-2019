@@ -1,11 +1,14 @@
 package com.multipolar.bootcamp.spring.appecommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -28,4 +31,8 @@ public class Pelanggan {
 
     @Column(name = "kontak")
     private String kontak;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "pelanggan")
+    public List<Transaksi> transaksiList = new ArrayList<>();
 }
